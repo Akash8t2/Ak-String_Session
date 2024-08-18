@@ -6,7 +6,7 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 
 MUST_JOIN = "Ak_support1"
 #------------------------
-@app.on_message(filters.incoming & filters.private, group=-1)
+@Anony.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(app: Client, msg: Message):
     if not MUST_JOIN:
         return
