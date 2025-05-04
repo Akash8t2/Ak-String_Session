@@ -5,13 +5,12 @@ from StringGen import Anony
 from StringGen.utils import gen_key
 from StringGen.modules.gen import gen_session
 
-
 @Anony.on_callback_query(
     filters.regex(pattern=r"^(gensession|pyrogram|pyrogram1|telethon)$")
 )
 async def cb_choose(_, cq: CallbackQuery):
     await cq.answer()
-    query = cq.matches[0].group(1)
+    query = cq.data  # Directly access cq.data for callback data
     if query == "gensession":
         return await cq.message.reply_text(
             text="<b>» ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴs ʙᴇʟᴏᴡ ғᴏʀ ɢᴇɴᴇʀᴀᴛɪɴɢ ʏᴏᴜʀ sᴇssɪᴏɴ :</b>",
@@ -26,4 +25,7 @@ async def cb_choose(_, cq: CallbackQuery):
             elif query == "telethon":
                 await gen_session(cq.message, cq.from_user.id, telethon=True)
         except Exception as e:
-            await cq.edit_message_text(e, disable_web_page_preview=True)
+            await cq.edit_message_text(
+                f"» Session generate karte waqt error aaya: {str(e)}",
+                disable_web_page_preview=True
+            )
