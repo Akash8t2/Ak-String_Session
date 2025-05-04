@@ -4,7 +4,7 @@ from pyrogram.errors import ChatAdminRequired, UserNotParticipant, ChatWriteForb
 from StringGen import Anony
 #--------------------------
 
-MUST_JOIN = "Ak_support1"
+MUST_JOIN = "SFW_Community_Official"
 #------------------------
 @Anony.on_message(filters.incoming & filters.private, group=-1)
 async def must_join_channel(app: Client, msg: Message):
