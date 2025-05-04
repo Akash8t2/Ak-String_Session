@@ -9,5 +9,5 @@ filetype==1.2.0
 requests==2.31.0
 python-magic-bin==0.4.14; sys_platform == 'win32'
 python-magic==0.4.27; sys_platform != 'win32'
-oldpyro==1.0.0
-protobuf==3.20.3  # Telethon के लिए आवश्यक
+oldpyro==0.1.0
+protobuf==3.20.3
